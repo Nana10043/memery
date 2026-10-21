@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <h1>🧠 Memory Game</h1>
+  <div class="difficulty">
+    <button data-d="easy" class="active">简单</button>
+    <button data-d="mid">中等</button>
+    <button data-d="hard">困难</button>
+  </div>
+  <div class="stats">
+    <span>⏱ <b id="time">0s</b></span>
+    <span>🔁 <b id="moves">0</b></span>
+    <span>✅ <b id="pairs">0/6</b></span>
+    <span>🏆 <b id="best">--</b></span>
+  </div>
+  <div class="board" id="board"></div>
+</div>
+<div class="win" id="win">
+  <div class="win-box">
+    <h2>🎉 通关！</h2>
+    <p>耗时: <b id="winTime"></b></p>
+    <p>步数: <b id="winMoves"></b></p>
+    <p>最佳: <b id="winBest"></b></p>
+    <button onclick="closeWin()">再玩一次</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

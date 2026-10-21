@@ -1,0 +1,46 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  min-height: 100vh; display: flex; justify-content: center; align-items: center;
+}
+.app { text-align: center; color: #333; padding: 20px; max-width: 600px; width: 100%; }
+h1 { margin-bottom: 15px; font-size: 2.2rem; }
+.difficulty button {
+  margin: 5px; padding: 8px 16px; border: none; border-radius: 20px;
+  cursor: pointer; background: rgba(255,255,255,0.5); transition: .2s;
+}
+.difficulty button.active { background: #fff; font-weight: bold; transform: scale(1.1); }
+.stats { margin: 15px 0; font-size: 1.1rem; display: flex; justify-content: space-around; }
+.board {
+  display: grid; gap: 10px; margin-top: 15px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.card {
+  aspect-ratio: 1; perspective: 1000px; cursor: pointer; position: relative;
+}
+.face {
+  position: absolute; width: 100%; height: 100%; display: flex;
+  align-items: center; justify-content: center; font-size: 2rem;
+  border-radius: 12px; transition: transform .5s; backface-visibility: hidden;
+}
+.back { background: #fff; transform: rotateY(0deg); }
+.front { background: #ffd700; transform: rotateY(180deg); }
+.card.flipped .back { transform: rotateY(180deg); }
+.card.flipped .front { transform: rotateY(0deg); }
+.card.matched { opacity: .6; }
+.win {
+  position: fixed; inset: 0; background: rgba(0,0,0,.6); display: none;
+  align-items: center; justify-content: center;
+}
+.win.show { display: flex; }
+.win-box { background: #fff; padding: 30px; border-radius: 20px; text-align: center; }
+.win-box button { margin-top: 15px; padding: 10px 20px; border: none; border-radius: 20px; background: #74ebd5; cursor: pointer; }
+.spark {
+  position: fixed; width: 8px; height: 8px; border-radius: 50%; pointer-events: none;
+  animation: sp 0.8s ease-out forwards;
+}
+@keyframes sp {
+  to { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+}
+@media (min-width: 500px) { .board { grid-template-columns: repeat(4, 1fr); } }
